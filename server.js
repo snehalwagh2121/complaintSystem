@@ -11,9 +11,9 @@ const server=express();
 server.set('view engine', 'ejs');
 
 //IMPORT ROUTES
-const postRoute=require('./routes/post.js');
+const postRoute=require('./routes/UsersRequests.js');
 //MIDDLEWARE
-server.use('/posts', postRoute);
+server.use('/user', postRoute);
 server.use(express.static(publicDirectory));
 
 const userSchema=require('./models/userSchema.js');
@@ -36,7 +36,12 @@ db.connect((err)=>{
 server.get('/', (req, res)=>{
     console.log('get call made');
     res.render('home');
-})
+});
+server.get('/home', (req, res)=>{
+    console.log('home get call made');
+    res.render('home');
+});
 
+module.exports.db=db;
 
 server.listen('3000');

@@ -3,26 +3,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMPLAINT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <div class="container">
-        <div class="nav">
+        <div class="topnav">
             <div class="nav-heading"><a href="#">COMPLAINT PORTAL</a></div>
-            <div class="nav-links">
-                <div class="abt"><a href="#">About</a></div>
-                <div class="contact"><a href="#">Contact</a></div>
-                <div class="FAQ"><a href="#">FAQ's</a></div>
-                <div class="Officer-Contact"><a href="#">Officer's Contact</a></div>
-                <div class="login"><a href="#">LOGIN</a></div>
-                <div class="login"><a href="#">LOGIN</a></div>
-            </div>
+            <a href="#" class="login-btn">Login</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#news">News</a>
+            <a href="#news">Officer's Contact</a>
+            <a class="active" href="#home">Home</a>
         </div>
         <div class="main-grid">
-            <div class="pics">
-                <div class="pic1"></div>
-                <div class="pic1"></div>
-                <div class="pic1"></div>
+            <div id="slider">
+                <figure>
+                    <img src="img/children.jpg" alt="">
+                    <img src="img/oldWoman.jpg" alt="">
+                    <img src="img/front1.jpg" alt="">
+                    <img src="img/trains.jpg" alt="">
+                    <img src="img/children.jpg" alt="">
+                    <img src="img/oldWoman.jpg" alt="">
+                    <img src="img/front1.jpg" alt="">
+                    <img src="img/trains.jpg" alt="">
+                </figure>
             </div>
             <div class="grievance">
                 <div class="post-grievance">POST GREVIANCE</div>
@@ -34,5 +40,62 @@
             <div class="news-updates"></div>
         </div>
     </div>
+
+    <div class="login-page noDisplay">
+        <div class="login-wrap">
+            <div class="login-html">
+                <div class="close-btn"><i class="fas fa-times"></i></div>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <form action="/user/login" method="POST" class="sign-in-htm">
+                        <div class="group">
+                            <input id="signin-user" name="signin-user" type="text" class="input" placeholder="Username">
+                        </div>
+                        <div class="group">
+                            <input id="signin-pass" name="signin-pass" type="password" class="input" data-type="password" placeholder="Password">
+                        </div>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign In">
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgot">Forgot Password?</a>
+                        </div>
+                    </form>
+                    <form action="/user/signUp" method="POST" class="sign-up-htm">
+                        <div class="group">
+                            <input id="signup-user" name="userId" type="text" class="input" placeholder="Username">
+                        </div>
+                        <div class="group">
+                            <input id="signup-pass" name="password" type="password" class="input" data-type="password" placeholder="Password">
+                        </div>
+                        <div class="group">
+                            <input type="password" class="input" placeholder="Repeat Password" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input id="user-contact" type="text" class="input" placeholder="CONTACT" name="contact">
+                        </div>
+                        <div class="group">
+                            <input id="address" type="text" class="input" placeholder="DISTRICT" name="address">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
+                        <!-- <div class="hr"></div> -->
+                        <div class="foot-lnk">
+                            <label for="tab-1">Already Member?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/04ce6063ff.js" crossorigin="anonymous"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>

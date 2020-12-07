@@ -5,14 +5,311 @@
 }
 .container{
     height: 100%;
+    font-family: 'Roboto Slab', serif;
     /* background-color: aqua; */
 }
-.nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 1%;
-    background-color: aquamarine;
+.topnav {
+    background-color: #0e0e0e;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .topnav .nav-heading {
+      position: absolute;
+  }
+
+
+.close-btn{
+    font-size: larger;
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
-.nav-links{
-    display: flex;
+.login-page{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+}
+.login-wrap{
+    width:60%;
+    height: 80%;
+    margin:auto;
+    border-radius: 20px;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+    height:100%;
+    border-radius: 20px;
+	position:absolute;
+	padding:20px 70px 50px 70px;    
+    background:rgba(40,57,101,1);
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+    margin:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#1161ee;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+    text-align:center;
+}
+.foot-lnk a{
+    color: cornsilk;
+}
+
+.noDisplay{
+    display: none;
+}
+
+/* PIC COROUSEL START */
+.main-grid{
+  width: 100%;
+    height: 40%;
+    background-color: #0e0e0e;
+    position: relative;
+}
+
+#slider{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#slider figure{
+  display: flex;
+  position: relative;
+  width: 200%;
+  height: 100%;
+  margin: 0;
+  animation: 20s slider infinite;
+}
+#slider figure img{
+  opacity: 0.5;
+  width: 25%;
+  float: left;
+}
+@keyframes slider{
+  0%{
+    left: 0;
+  }
+  5%{
+    left: 0;
+  }
+  10%{
+    left: -25%;
+  }
+  15%{
+    left: -25%;
+  }
+  20%{
+    left: -50%;
+  }
+  25%{
+    left: -50%;
+  }
+  30%{
+    left: -75%;
+  }
+  35%{
+    left: -75%;
+  }
+  40%{
+    left: -100%;
+  }
+  45%{
+    left: -100%;
+  }
+  50%{
+    left: -100%;
+  }
+  55%{
+    left: -100%;
+  }
+  60%{
+    left: -125%;
+  }
+  65%{
+    left: -125%;
+  }
+  70%{
+    left: -150%;
+  }
+  75%{
+    left: -150%;
+  }
+  80%{
+    left: -150%;
+  }
+  85%{
+    left: -175%;
+  }
+  90%{
+    left: -175%;
+  }
+  95%{
+    left: -175%;
+  }
+  100%{
+    left: -200%;
+  }
+
+}
+
+/* GREVIANCE OPTIONS */
+.grievance{
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 25%;
+}
+.grievance div{
+  padding: 2% 5%;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: rgba(0,0,0,1);
+  color: whitesmoke;
+}
+.grievance div:hover{
+  cursor: pointer;
+  background-color: rgb(22, 22, 22);
 }

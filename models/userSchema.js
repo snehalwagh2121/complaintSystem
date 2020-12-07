@@ -1,22 +1,22 @@
 class UserSchema {
-    constructor(fName, lName, Phone, district){
-        this.fName =fName;
-        this.lName =lName;
+    constructor(userId, password, Phone, district){
+        this.userId =userId;
+        this.password =password;
         this.Phone =Phone ;
         this.district= district;   
     }
 
-    getfName(){
-        return this.fName;
+    getUserId(){
+        return this.userId;
     }
-    setfName(fName){
-        this.fName=fName;
+    setUserId(userId){
+        this.userId=userId;
     }
-    getlName(){
-        return this.lName;
+    getPassword(){
+        return this.password;
     }
-    setlName(lName){
-        this.lName=lName;
+    setPassword(password){
+        this.password=password;
     }
     getPhone(){
         return this.Phone;
@@ -32,4 +32,4 @@ class UserSchema {
     }
 }
 
-module.exports.UserSchema=UserSchema;
+module.exports=UserSchema;
