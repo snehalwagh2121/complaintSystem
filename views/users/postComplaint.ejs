@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMPLAINT</title>
+    <link rel="stylesheet" href="../../public/css/users/postComplaint.css">
 </head>
 <body>
     <div class="container">
@@ -10,7 +11,7 @@
         <form method="POST" enctype="multipart/form-data" action="" class="grievanceForm">
             <div class="element">
                 <div class="label">USER : </div>
-                <input type="email" disabled=disabled placeholder="<%=userData.userId%>" id='userEmail' name='userEmail'>
+                <input type="email" disabled=disabled placeholder="<%=userData.username%>" id='userEmail' name='userEmail'>
             </div>
             <div class="element">
                 <div class="label" for="district">SELECT DISTRICT : </div>
