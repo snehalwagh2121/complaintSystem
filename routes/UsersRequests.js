@@ -54,6 +54,7 @@ router.get('/postComplaint', (req, res)=>{
     if(req.session.user!=null){
         res.render('users/postComplaint',{userData: req.session.user});
     }else{
+        console.log('please login first');
         res.redirect('/home');
     }
 });
