@@ -3,6 +3,7 @@ const express=require('express');
 const bodyParser= require('body-parser');
 const multer = require('multer');
 const session=require('express-session');
+const dbObj= require('../server.js');
 
 var urlEncodedParser= bodyParser.urlencoded({extended : false})
 const router=express.Router();
@@ -69,4 +70,22 @@ router.post('/postComplaint',upload.single('image'), urlEncodedParser, (req, res
         res.redirect('/home');
     });
 });
+
+router.get('/trackGravience', (req, res)=>{
+    let allComplaints;
+    console.log('showing get track Grievance view of user: '+req.session.user);
+    if(req.session.user!=null){
+        users.getAllComplaints(req.session.user.uid)
+        .then(resolve=>{
+            allComplaints=resolve;
+            res.render('users/trackGravience',{userData: req.session.user, complaintData: allComplaints});
+        }).catch(reject=>{
+            res.redirect('/home');
+        })
+    }else{
+        console.log('please login first');
+        res.redirect('/home');
+    }
+});
+
 module.exports=router;

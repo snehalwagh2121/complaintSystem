@@ -28,7 +28,6 @@
 }
 .element{
     display: flex;
-    /* margin: 4%; */
     padding: 2%;
 }
 .element div{
@@ -55,9 +54,7 @@
     border: none;
     background-color:  #bedcfa;
     box-shadow: 0px 0px 5px 5px  rgba(152, 172, 248,.5);
-    /* width: 10%; */
 }
 .formBtns button:hover{
     background-color: rgba(152, 172, 248,0.2);
-    /* background-color:  rgba(190, 220, 250,0.5); */
 }

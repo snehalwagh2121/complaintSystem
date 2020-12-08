@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLAINT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/users/trackGreivance.css">    <!--all the ejs which are present in some folder to refer to css they should use /css as roue will try to prefix with /user-->
+</head>
+<body>
+    <div class="container">
+        <div class="topnav">
+            <div class="nav-heading"><a href="#">COMPLAINT PORTAL</a></div>
+            <a href="#" class="login-btn">Login</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#news">News</a>
+            <a href="#news">Officer's Contact</a>
+            <a class="active" href="#home">Home</a>
+        </div>
+        <div class="tracking-content">
+            <div class="complaint">
+                <% if(complaintData.length>0) {
+                    complaintData.forEach(complaint=>{
+                        %>
+                        <div class="comapliant-mini">
+                            <div class="complaint-token"><%=complaint.cid+700%></div>
+                            <div class="complaint-district"><%=complaint.district%></div>
+                            <div class="complaint-status"><%=complaint.status%></div>
+                            <div class="complaint-date"><%=complaint.registeredDate%></div>
+                        </div>
+                        <div class="complaint-dtl">
+                            <div class="complaint-dtl-info">
+                                <div class="complaint-txt">
+                                    <%=complaint.complaint%>
+                                </div>
+                                <div class="complaint-img">
+        
+                                </div>
+                            </div>
+                        </div>
+                        <%
+                    })
+                }%>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

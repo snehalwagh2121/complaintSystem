@@ -1,5 +1,6 @@
 const dbObj=require('../server.js');
 const userSchema=require('../models/userSchema.js');
+const { resolve } = require('path');
 const userOperations={
     authenticate(user){
        return new Promise((resolve, reject)=>{
@@ -36,6 +37,19 @@ const userOperations={
                     return reject( new Error({msg: err}));
                 else
                     return resolve({msg: 'complaint regitered successfully'});
+            });
+        })
+    },
+    getAllComplaints(userId){
+        return new Promise((resolve, reject)=>{
+            const getAllComplaints=`select * from complaint where uid= ${userId}`;
+            dbObj.db.query(getAllComplaints, (err, result)=>{
+                console.log('query executed to get tracking :'+getAllComplaints);
+                if(err){
+                    reject('error while fetching the complaints');
+                }else{
+                    resolve(result);
+                }
             });
         })
     }
