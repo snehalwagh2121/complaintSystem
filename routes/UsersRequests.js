@@ -23,18 +23,40 @@ const storage = multer.diskStorage({
   });
 var upload = multer({ storage: storage })
 
+let user=0;
+let officer=0;
 
+router.get('/userLogin' ,(req, res)=>{
+    user=1;
+    officer=0;
+    console.log('user login');
+    res.render('users/login');
+});
+router.get('/officerLogin',(req, res)=>{
+    user=0;
+    officer=1;
+    console.log('officer login');
+    res.render('users/login');
+});
 router.post('/login',urlEncodedParser,(req, res)=>{
     console.log('post user login call made from UserRequire.js');
     console.log(req.body);
-    users.authenticate(req.body)
+    users.authenticate(req.body, user)
     .then((result)=>{
         console.log('success', result.user);
-        req.session.user=result.user;
-        res.redirect('postComplaint');
+       if(user){
+           req.session.officer=null;
+            req.session.user=result.user;
+            res.redirect('/home');
+       }else{
+        req.session.officer=result.user;
+        req.session.user=null;
+        res.redirect('trackGravience');
+       }
     }).catch((error)=>{
         console.log('error: '+error.error);
         req.session.user=null;
+        req.session.officer=null;
         res.redirect('/home');
     });
 });
@@ -74,11 +96,24 @@ router.post('/postComplaint',upload.single('image'), urlEncodedParser, (req, res
 router.get('/trackGravience', (req, res)=>{
     let allComplaints;
     console.log('showing get track Grievance view of user: '+req.session.user);
-    if(req.session.user!=null){
+    console.log('req.session.user: '+req.session.user);
+    console.log('req.session.officer: '+req.session.officer);
+
+    if(req.session.user!=null ){
+        console.log('get users comaplaints');
         users.getAllComplaints(req.session.user.uid)
         .then(resolve=>{
             allComplaints=resolve;
-            res.render('users/trackGravience',{userData: req.session.user, complaintData: allComplaints});
+            res.render('users/trackGravience',{userData: req.session.user, complaintData: allComplaints, officerData:""});
+        }).catch(reject=>{
+            res.redirect('/home');
+        })
+    }else if(req.session.officer!=null){
+        console.log('get officers comaplaints');
+        users.getAllOfficerComplaints(req.session.officer.fid)
+        .then(resolve=>{
+            allComplaints=resolve;
+            res.render('users/trackGravience',{userData: req.session.user, complaintData: "", officerData: resolve});
         }).catch(reject=>{
             res.redirect('/home');
         })

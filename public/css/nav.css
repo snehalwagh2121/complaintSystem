@@ -2,9 +2,39 @@
     background-color: #0e0e0e;
     overflow: hidden;
   }
+  .dropbtn{
+    font-size: 1.3rem;
+    position: relative;
+    color: whitesmoke;
+  }
+  .dropdown-content{
+    z-index: 8;
+    background-color: #333333;
+    position: absolute;
+    display: none;
+    padding: 2px;
+    border-radius: 5%;
+    right: 2px;
+  
+  }
+  
+  .dropdown:hover .dropdown-content{
+      
+    /* width: 100%; */
+    padding: 5px;
+    display: block;
+    /* background-color: blue; */
+  }
+  /* .dropdown-content div a{
+    font-size: 1.2rem;
+  } */
+  .dropdown-content div{
+    padding: 5px 0;
+  }
+  
   
   /* Style the links inside the navigation bar */
-  .topnav a {
+  .topnav a ,.dropdown{
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -14,12 +44,22 @@
   }
   
   /* Change the color of links on hover */
-  .topnav a:hover {
+  .topnav a:hover, .dropdown:hover{
     background-color: #ddd;
     color: black;
     font-weight: bold;
   }
-  
+  .dropdown:hover .dropbtn{
+    background-color: #ddd;
+    color: black;
+    font-weight: bold;
+  }
+  .dropbtn{
+    font-size: 17px;
+  }
+  .dropdown-content div a{
+    font-size: 15px;
+  }
   /* Add a color to the active/current link */
   .topnav a.active {
     background-color: #4CAF50;

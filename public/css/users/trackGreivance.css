@@ -6,4 +6,40 @@
 .container{
     height: 100%;
     width: 100%;
+    font-family: 'Roboto Slab', serif;
+}
+.tracking-heading{
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 2rem;
+}
+.complaint{
+    
+    width: 85%;
+    margin: 2% auto;
+}
+.comapliant-mini{
+    position: relative;
+    display: flex;
+    background-color: blueviolet;
+}
+.dropBtn{
+    position: absolute;
+    right: -20%;
+    font-size: 2rem;
+}
+.comapliant-mini div{
+    width: 25%;
+    padding: 15px;
+}
+
+.complaint-dtl{
+    display: flex;
+    background-color: brown;
+    padding: 15px;
+}
+.noDisplay{
+    display: none;
 }
