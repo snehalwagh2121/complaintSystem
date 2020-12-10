@@ -70,7 +70,19 @@ const userOperations={
                 }
             });
         });
-        
+    },
+    changeStatus(complaint){
+        return new Promise((resolve, reject)=>{
+            const changeStatus=`update complaint set status='${complaint.newComplaintStatus}' where cid=${complaint.complaintId}`;
+            dbObj.db.query(changeStatus, (err, result)=>{
+                console.log('query executed to change status :'+changeStatus);
+                if(err){
+                    reject('error while updating the status');
+                }else{
+                    resolve(result);
+                }
+            });
+        })
     }
 }
 

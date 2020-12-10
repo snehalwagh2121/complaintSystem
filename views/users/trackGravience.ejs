@@ -37,8 +37,10 @@
                 <div class="complaint">
                     <div class="comapliant-mini">
                         <div class="dropBtn">
-                            <i class="fas fa-caret-down dropdown"></i>
-                            <i class="fas fa-caret-up dropup noDisplay"></i>
+                            <div class="btns"><i class="fas fa-caret-down dropdown"></i></div>
+                            <div class="noDisplay btns"><i class="fas fa-caret-up dropup"></i></div>
+                            <!-- <i class="fas fa-caret-down dropdown"></i>
+                            <i class="fas fa-caret-up dropup noDisplay"></i> -->
                         </div>
                         <div class="complaint-token">TOKEN: <%=complaint.cid+700%></div>
                         <div class="complaint-district">DISTRICT: <%=complaint.district%></div>
@@ -77,18 +79,25 @@
                     <div class="complaint">
                         <div class="comapliant-mini">
                             <div class="dropBtn">
-                                <i class="fas fa-caret-down dropdown"></i>
-                                <i class="fas fa-caret-up dropup noDisplay"></i>
+                                <div class="btns"><i class="fas fa-caret-down dropdown"></i></div>
+                                <div class="noDisplay btns"><i class="fas fa-caret-up dropup"></i></div>
                             </div>
                             <div class="complaint-token">TOKEN: <%=complaint.cid+700%></div>
                             <div class="complaint-status">STATUS: <%=complaint.status%></div>
-                            <form action="" method="POST" class="change-status">
-                                <select name="newComplaintStatus" id="status">
-                                    <option value="OPEN">OPEN</option>
-                                    <option value="PROGRESS">IN PROGRESS</option>
-                                    <option value="RESOLVED">RESOLVED</option>
-                                </select>
-                            </form>
+                            <div class="change-status">
+                                <div class="change-stat">CHANGE STATUS</div>
+                                <form action="" method="POST" name="statusForm" class="noDisplay">
+                                    <div class="complaintId noDisplay"><input type="text" value="<%=complaint.cid%>" name="complaintId"></div>
+                                    <select name="newComplaintStatus" id="status" onchange="this.form.submit()" value="<%=complaint.status%>">
+                                        <option value="none" selected disabled hidden> 
+                                            Select an Option 
+                                        </option> 
+                                        <option value="OPEN">OPEN</option>
+                                        <option value="PROGRESS">IN PROGRESS</option>
+                                        <option value="RESOLVED">RESOLVED</option>
+                                    </select>
+                                </form>
+                            </div>
                             <div class="complaint-date">DATE: <%=convert(complaint.registeredDate)%></div>
                         </div>
                         <div class="complaint-dtl noDisplay" id="complaint-dtl">
@@ -100,8 +109,8 @@
                             </div>
                         </div>
                         <div class="user-info">
-                            <div class="username">Name: </div>
-                            <div class="contact">Contact: </div>
+                            <div class="username">Name: <%=complaint.username%></div>
+                            <div class="contact">Contact: <%=complaint.phone%></div>
                         </div>
                     </div>
                 <%

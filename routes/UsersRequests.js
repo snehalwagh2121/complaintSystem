@@ -4,6 +4,7 @@ const bodyParser= require('body-parser');
 const multer = require('multer');
 const session=require('express-session');
 const dbObj= require('../server.js');
+const { resolve } = require('path');
 
 var urlEncodedParser= bodyParser.urlencoded({extended : false})
 const router=express.Router();
@@ -93,7 +94,7 @@ router.post('/postComplaint',upload.single('image'), urlEncodedParser, (req, res
     });
 });
 
-router.get('/trackGravience', (req, res)=>{
+router.get('/trackGravience',(req, res)=>{
     let allComplaints;
     console.log('showing get track Grievance view of user: '+req.session.user);
     console.log('req.session.user: '+req.session.user);
@@ -121,6 +122,25 @@ router.get('/trackGravience', (req, res)=>{
         console.log('please login first');
         res.redirect('/home');
     }
+});
+
+router.post('/trackGravience',urlEncodedParser, (req, res)=>{
+    console.log('post track gravience req.body: ',req.body);
+    
+    users.changeStatus(req.body)
+    .then(resolve=>{
+        console.log('updated status succesfully');
+        users.getAllOfficerComplaints(req.session.officer.fid)
+        .then(resolve=>{
+            allComplaints=resolve;
+            res.render('users/trackGravience',{userData: req.session.user, complaintData: "", officerData: resolve});
+        }).catch(reject=>{
+            res.redirect('/home');
+        }) ;
+    }).catch(reject=>{
+        console.log('some error occured');
+        res.redirect('/home');
+    })
 });
 
 module.exports=router;

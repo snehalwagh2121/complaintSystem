@@ -16,20 +16,15 @@
     font-size: 2rem;
 }
 .complaint{
-    
     width: 85%;
     margin: 2% auto;
 }
 .comapliant-mini{
     position: relative;
     display: flex;
-    background-color: blueviolet;
+    background-color: #b088f9;
 }
-.dropBtn{
-    position: absolute;
-    right: -20%;
-    font-size: 2rem;
-}
+
 .comapliant-mini div{
     width: 25%;
     padding: 15px;
@@ -37,8 +32,60 @@
 
 .complaint-dtl{
     display: flex;
-    background-color: brown;
+    background-color: rgba(188, 230, 235,.5);
     padding: 15px;
+}
+.comapliant-mini .dropBtn{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    padding: 0;
+}
+.comapliant-mini .dropBtn div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: black;
+    padding: 0;
+}
+.comapliant-mini .dropBtn div i{
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+    padding: 20%;
+}
+
+.complaint .comapliant-mini .dropBtn div i:hover{
+    background-color: rgba(188, 230, 235,.5);
+}
+#status{
+    position: absolute;
+    padding: 5px;
+}
+.user-info{
+    display: flex;
+    background-color: #eeeded;
+}
+.user-info div{
+    padding: 15px;
+    width: 30%;
+}
+.complaint .comapliant-mini .change-status{
+    /* width: 100%; */
+    padding: 0px;
+    position: relative;
+}
+.complaint .comapliant-mini .change-status form{
+    margin: 10px;
+}
+.complaint .comapliant-mini .change-status .change-stat{
+    position: absolute;
+    width: 100%;
+}
+.complaint .comapliant-mini .change-status .change-stat:hover{
+    background-color: rgba(188, 230, 235,.5);
+    cursor: pointer;
 }
 .noDisplay{
     display: none;
