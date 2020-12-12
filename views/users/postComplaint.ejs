@@ -10,13 +10,18 @@
 <body>
     <div class="container">
         <div class="topnav">
-            <div class="nav-heading"><a href="#">COMPLAINT PORTAL</a></div>
-            <a href="#" class="login-btn">Login</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <div class="nav-heading"><a href="/home">COMPLAINT PORTAL</a></div>
+            <div class="dropdown logoutOptions">
+                <div class="dropbtn profile">Login</div>
+                <div class="dropdown-content">
+                    <div><a href="userLogin" class="login-btn">User</a></div>
+                    <div><a href="officerLogin">Officer</a></div>
+                </div>
+            </div>
+            <a href="#">Contact</a>
             <a href="#news">News</a>
-            <a href="#news">Officer's Contact</a>
-            <a class="active" href="#home">Home</a>
+            <a href="/user/OfficersContact">Officer's Contact</a>
+            <a href="/home">Home</a>
         </div>
         <div class="page-heading">POST GRIEVANCE</div>
         <form method="POST" enctype="multipart/form-data" action="" class="grievanceForm">

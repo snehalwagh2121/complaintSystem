@@ -3,7 +3,7 @@ require('dotenv').config();
 const mysql= require('mysql');
 const path= require('path');
 const livereload = require("livereload");
-
+const session=require('express-session');
 const publicDirectory=path.join(__dirname,'public');
 
 const server=express();
@@ -11,12 +11,19 @@ const server=express();
 server.set('view engine', 'ejs');
 
 //IMPORT ROUTES
-const postRoute=require('./routes/UsersRequests.js');
+const userRoute=require('./routes/UsersRequests.js');
+
 //MIDDLEWARE
-server.use('/user', postRoute);
+server.use('/user', userRoute);
+server.use(session({
+        secret: 'secret-key',
+        resave: false,
+        saveUninitialized: false
+    }));
+// server.use('/officer', officerRoute);
 server.use(express.static(publicDirectory));
 
-const userSchema=require('./models/userSchema.js');
+// const userSchema=require('./models/userSchema.js'); not using since no need of pojo 
 
 //DB CONNECTION
 const db= mysql.createConnection({
@@ -41,7 +48,9 @@ server.get('/home', (req, res)=>{
     console.log('home get call made');
     res.render('home');
 });
-
+// server.get('/newsApi', (req, res)=>{
+//     console.log('news API get call made');
+//     res.render('newsApi');
+// });
 module.exports.db=db;
-
 server.listen('3000');

@@ -1,4 +1,5 @@
-const users=require('../controller/users.js')
+const users=require('../controller/users.js');
+const officers=require('../controller/officers.js');
 const express=require('express');
 const bodyParser= require('body-parser');
 const multer = require('multer');
@@ -55,7 +56,7 @@ router.post('/login',urlEncodedParser,(req, res)=>{
         res.redirect('trackGravience');
        }
     }).catch((error)=>{
-        console.log('error: '+error.error);
+        console.log('error occured : '+error.error);
         req.session.user=null;
         req.session.officer=null;
         res.redirect('/home');
@@ -94,6 +95,14 @@ router.post('/postComplaint',upload.single('image'), urlEncodedParser, (req, res
     });
 });
 
+
+
+
+
+//OFFICER OPERATIONS
+
+
+//GET TACKING COMPLAINTS FORA PARTICULAR USER
 router.get('/trackGravience',(req, res)=>{
     let allComplaints;
     console.log('showing get track Grievance view of user: '+req.session.user);
@@ -111,7 +120,7 @@ router.get('/trackGravience',(req, res)=>{
         })
     }else if(req.session.officer!=null){
         console.log('get officers comaplaints');
-        users.getAllOfficerComplaints(req.session.officer.fid)
+        officers.getAllOfficerComplaints(req.session.officer.fid)
         .then(resolve=>{
             allComplaints=resolve;
             res.render('users/trackGravience',{userData: req.session.user, complaintData: "", officerData: resolve});
@@ -124,13 +133,14 @@ router.get('/trackGravience',(req, res)=>{
     }
 });
 
+//CHANGE STATUS OF THE COMPLAINT
 router.post('/trackGravience',urlEncodedParser, (req, res)=>{
     console.log('post track gravience req.body: ',req.body);
     
-    users.changeStatus(req.body)
+    officers.changeStatus(req.body)
     .then(resolve=>{
         console.log('updated status succesfully');
-        users.getAllOfficerComplaints(req.session.officer.fid)
+        officers.getAllOfficerComplaints(req.session.officer.fid)
         .then(resolve=>{
             allComplaints=resolve;
             res.render('users/trackGravience',{userData: req.session.user, complaintData: "", officerData: resolve});
@@ -143,4 +153,21 @@ router.post('/trackGravience',urlEncodedParser, (req, res)=>{
     })
 });
 
+
+//GET OFFICERS CONTACT PAGE
+router.get('/OfficersContact', (req, res)=>{
+    console.log('showing Officers Contact page: ');
+    officers.officersContact()
+    .then(resolve=>{
+        res.render('officers/contacts',{contacts: resolve});
+    }).catch(reject=>{
+        res.redirect('/home');
+    })
+   
+});
+
+router.get('/news',(req, res)=>{
+    console.log('news page');
+    res.render('users/news');
+})
 module.exports=router;

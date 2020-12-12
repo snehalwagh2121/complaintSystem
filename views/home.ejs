@@ -6,12 +6,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/news.css">
 </head>
 <body>
     <!-- <a href="#" class="login-btn">Login</a> -->
     <div class="container">
         <div class="topnav">
-            <div class="nav-heading"><a href="#">COMPLAINT PORTAL</a></div>
+            <div class="nav-heading"><a href="/home">COMPLAINT PORTAL</a></div>
             
             <div class="dropdown logoutOptions">
                 <div class="dropbtn profile">Login</div>
@@ -20,10 +21,9 @@
                     <div><a href="user/officerLogin">Officer</a></div>
                 </div>
             </div>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#news">News</a>
-            <a href="#news">Officer's Contact</a>
+            <a href="#">Contact</a>
+            <a href="/user/news">News</a>
+            <a href="/user/OfficersContact">Officer's Contact</a>
             <a class="active" href="#home">Home</a>
         </div>
         <div class="main-grid">
@@ -45,12 +45,24 @@
             </div>
         </div>
         <div class="news">
-            <div class="right-message"></div>
-            <div class="news-updates"></div>
+            <div class="whatsNew">
+                <div class="heading">WHAT'S NEW</div>
+                <div class="news-updates">
+
+                </div>
+            </div>
+            <div class="right-message">
+                <div class="heading">Message</div>
+                <div class="slogan">
+                        <div>"This portal has been created to provide convenience to citizens by allowing them to lodge a grievance through their mobile phones or computers....."</div>
+                </div>
+            </div>
+           
         </div>
     </div>
 
 <script src="https://kit.fontawesome.com/04ce6063ff.js" crossorigin="anonymous"></script>
 <script src="js/home.js"></script>
+<script src="js/newsApi.js"></script>
 </body>
 </html>
