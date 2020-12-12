@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+    background-color: #eeeeee;
+}
+.heading{
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.sub-heading{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.main-content{
+    width: 60%;
+    margin: auto;
+    background-color: #aaaaaa;
+}
+.dtlsUL{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+}
+.dtlsUL li{
+    list-style-type: none;
+    width: 33%;
+    margin-left: 2%;
+}
+.main-content:hover{
+    background-color: #bbbbbb;
+}

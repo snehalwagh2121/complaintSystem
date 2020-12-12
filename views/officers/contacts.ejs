@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/officers/contacts.css">
+</head>
+<body>
+    <div class="container">
+        <div class="topnav">
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
+            <div class="dropdown logoutOptions">
+                <div class="dropbtn profile"><%=status%></div>
+                <div class="dropdown-content">
+                    <div><a href="userLogin" class="login-btn">User</a></div>
+                    <div><a href="officerLogin">Officer</a></div>
+                </div>
+            </div>
+            <a href="logout" class="noDisplay logout">Logout</a>
+            <a href="news">News</a>
+            <a href="home">Home</a>
+        </div>
+        <div class="heading">OFFICERS CONTACTS</div>
+        <div class="main-content">
+            <ul class="dtlsUL">
+                <li class="district sub-heading">DISTRICT</li>
+                <li class="name sub-heading">OFFICER NAME</li>
+                <li class="contact sub-heading">OFFICER CONTACT</li>
+            </ul>
+        </div>
+        <%if(contacts.length>0) {
+            contacts.forEach(officer=>{
+                %>
+        <div class="main-content">
+            <ul class="dtlsUL">
+                <li class="district"><%=officer.taluka.toUpperCase()%></li>
+                <li class="name"><%=officer.name.toUpperCase()%></li>
+                <li class="contact"><%=officer.phone%></li>
+            </ul>
+        </div>
+        <% });
+    }%>
+    </div>
+    <script src="/js/userStatus.js"></script>
+</body>
+</html>

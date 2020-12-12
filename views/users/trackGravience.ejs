@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLAINT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/users/trackGreivance.css">    <!--all the ejs which are present in some folder to refer to css they should use /css as roue will try to prefix with /user-->
+</head>
+<body>
+    <div class="container">
+        <div class="topnav">
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
+            <div class="dropdown logoutOptions">
+                <div class="dropbtn profile"><%=status%></div>
+                <div class="dropdown-content">
+                    <div><a href="userLogin" class="login-btn">User</a></div>
+                    <div><a href="officerLogin">Officer</a></div>
+                </div>
+            </div>
+            <a href="logout" class="noDisplay logout">Logout</a>
+            <a href="news">News</a>
+            <a href="OfficersContact">Officer's Contact</a>
+            <a href="home">Home</a>
+        </div>
+        <div class="tracking-content"> 
+            
+            <%function convert(str) {
+                var date = new Date(str),
+                  mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                  day = ("0" + date.getDate()).slice(-2);
+                return [date.getFullYear(), mnth, day].join("-");
+              }
+              
+             if(complaintData.length>0) {%>
+                
+                <div class="tracking-heading">Track Grievances Status</div>
+                <%
+                    complaintData.forEach(complaint=>{
+                    %>
+               
+                <div class="complaint">
+                    <div class="comapliant-mini">
+                        <div class="dropBtn">
+                            <div class="btns"><i class="fas fa-caret-down dropdown"></i></div>
+                            <div class="noDisplay btns"><i class="fas fa-caret-up dropup"></i></div>
+                            <!-- <i class="fas fa-caret-down dropdown"></i>
+                            <i class="fas fa-caret-up dropup noDisplay"></i> -->
+                        </div>
+                        <div class="complaint-token">TOKEN: <%=complaint.cid+700%></div>
+                        <div class="complaint-district">DISTRICT: <%=complaint.district%></div>
+                        <div class="complaint-status">STATUS: <%=complaint.status%></div>
+                        <div class="complaint-date">DATE: <%=convert(complaint.registeredDate)%></div>
+                    </div>
+                    <div class="complaint-dtl noDisplay" id="complaint-dtl">
+                        <div class="complaint-txt">
+                            <%=complaint.complaint%>
+                        </div>
+                        <div class="complaint-img">
+
+                        </div>
+                    </div>
+                </div>
+            <%
+                })
+            }%>   
+
+
+            <div class="officer-tracking-content"> 
+                
+                <%function convert(str) {
+                    var date = new Date(str),
+                      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                      day = ("0" + date.getDate()).slice(-2);
+                    return [date.getFullYear(), mnth, day].join("-");
+                  }
+                  
+                 if(officerData.length>0) {
+                    %>
+                    <div class="tracking-heading">Grievances</div>
+                    <% officerData.forEach(complaint=>{
+                        %>
+                    
+                    <div class="complaint">
+                        <div class="comapliant-mini">
+                            <div class="dropBtn">
+                                <div class="btns"><i class="fas fa-caret-down dropdown"></i></div>
+                                <div class="noDisplay btns"><i class="fas fa-caret-up dropup"></i></div>
+                            </div>
+                            <div class="complaint-token">TOKEN: <%=complaint.cid+700%></div>
+                            <div class="complaint-status">STATUS: <%=complaint.status%></div>
+                            <div class="change-status">
+                                <div class="change-stat">CHANGE STATUS</div>
+                                <form action="" method="POST" name="statusForm" class="noDisplay">
+                                    <div class="complaintId noDisplay"><input type="text" value="<%=complaint.cid%>" name="complaintId"></div>
+                                    <select name="newComplaintStatus" id="status" onchange="this.form.submit()" value="<%=complaint.status%>">
+                                        <option value="none" selected disabled hidden> 
+                                            Select an Option 
+                                        </option> 
+                                        <option value="OPEN">OPEN</option>
+                                        <option value="PROGRESS">IN PROGRESS</option>
+                                        <option value="RESOLVED">RESOLVED</option>
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="complaint-date">DATE: <%=convert(complaint.registeredDate)%></div>
+                        </div>
+                        <div class="complaint-dtl noDisplay" id="complaint-dtl">
+                            <div class="complaint-txt">
+                                <%=complaint.complaint%>
+                            </div>
+                            <div class="complaint-img">
+    
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="username">Name: <%=complaint.username%></div>
+                            <div class="contact">Contact: <%=complaint.phone%></div>
+                        </div>
+                    </div>
+                <%
+                    })
+                }%>   
+            </div>
+        </div>
+        
+    </div>
+    <script src="/js/userStatus.js"></script>
+    <script src="https://kit.fontawesome.com/04ce6063ff.js" crossorigin="anonymous"></script>
+    <script src="/js/users/trackGreivance.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLAINT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/news.css">
+    <link rel="stylesheet" href="/css/users/newsPage.css">
+</head>
+<body>
+    <!-- <a href="#" class="login-btn">Login</a> -->
+    <div class="container">
+        <div class="topnav">
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
+            
+            <div class="dropdown logoutOptions">
+                <div class="dropbtn profile"><%=status%></div>
+                <div class="dropdown-content">
+                    <div><a href="user/userLogin" class="login-btn">User</a></div>
+                    <div><a href="user/officerLogin">Officer</a></div>
+                </div>
+            </div>
+            <a href="logout" class="noDisplay logout">Logout</a>
+            <a class="active" href="#news">News</a>
+            <a href="OfficersContact">Officer's Contact</a>
+            <a href="home">Home</a>
+        </div>
+       
+        <div class="news">
+                <div class="heading">WHAT'S NEW</div>
+                <div class="news-updates">
+
+                </div>
+        </div>
+    </div>
+
+<script src="https://kit.fontawesome.com/04ce6063ff.js" crossorigin="anonymous"></script>
+<script src="/js/userStatus.js"></script>
+<script src="/js/newsApi.js"></script>
+</body>
+</html>

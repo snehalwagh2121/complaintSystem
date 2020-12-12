@@ -9,12 +9,14 @@
     font-family: 'Roboto Slab', serif;
     /* background-color: aqua; */
 }
-
 .close-btn{
     font-size: larger;
     position: absolute;
     right: 20px;
     top: 10px;
+}
+.close-btn a{
+    color: black;
 }
 .login-page{
     height: 100%;
@@ -167,123 +169,4 @@
 
 .noDisplay{
     display: none;
-}
-
-/* PIC COROUSEL START */
-.main-grid{
-  width: 100%;
-    height: 40%;
-    background-color: #0e0e0e;
-    position: relative;
-}
-
-#slider{
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-#slider figure{
-  display: flex;
-  position: relative;
-  width: 200%;
-  height: 100%;
-  margin: 0;
-  animation: 20s slider infinite;
-}
-#slider figure img{
-  opacity: 0.5;
-  width: 25%;
-  float: left;
-}
-@keyframes slider{
-  0%{
-    left: 0;
-  }
-  5%{
-    left: 0;
-  }
-  10%{
-    left: -25%;
-  }
-  15%{
-    left: -25%;
-  }
-  20%{
-    left: -50%;
-  }
-  25%{
-    left: -50%;
-  }
-  30%{
-    left: -75%;
-  }
-  35%{
-    left: -75%;
-  }
-  40%{
-    left: -100%;
-  }
-  45%{
-    left: -100%;
-  }
-  50%{
-    left: -100%;
-  }
-  55%{
-    left: -100%;
-  }
-  60%{
-    left: -125%;
-  }
-  65%{
-    left: -125%;
-  }
-  70%{
-    left: -150%;
-  }
-  75%{
-    left: -150%;
-  }
-  80%{
-    left: -150%;
-  }
-  85%{
-    left: -175%;
-  }
-  90%{
-    left: -175%;
-  }
-  95%{
-    left: -175%;
-  }
-  100%{
-    left: -200%;
-  }
-
-}
-
-/* GREVIANCE OPTIONS */
-.grievance{
-  z-index: 5;
-  width: 100%;
-  position: absolute;
-  bottom: 10%;
-  display: flex;
-  justify-content: space-around;
-  padding: 0 25%;
-}
-.grievance div{
-  padding: 2% 5%;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  background-color: rgba(0,0,0,1);
-  color: whitesmoke;
-}
-.grievance div:hover{
-  cursor: pointer;
-  background-color: rgb(22, 22, 22);
-}
-.grievance div a{
-  text-decoration: none;
-  color: whitesmoke;
 }

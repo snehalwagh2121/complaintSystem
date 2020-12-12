@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+    background-color: #bedcfa;
+}
+.page-heading{
+    width: 100%;
+    background-color: turquoise;
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+}
+.grievanceForm{
+    margin: 2% auto;
+    width: 60%;
+    background-color: rgba(152, 172, 248,.2);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px  rgba(152, 172, 248,.5);
+}
+.grievanceForm:hover{
+    box-shadow: 0px 0px 10px 5px  rgba(120, 145, 248, 0.5);
+}
+.element{
+    display: flex;
+    padding: 2%;
+}
+.element div{
+    width: 35%;
+    font-size: 1.2rem;
+}
+.element input, .element textarea, .element select{
+    font-family: 'Roboto Slab', serif;
+    color: black;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+.fileUploadBtn{
+    border-radius: 10px;
+}
+.formBtns{
+    justify-content: space-evenly;
+}
+.formBtns button{
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color:  #bedcfa;
+    box-shadow: 0px 0px 5px 5px  rgba(152, 172, 248,.5);
+}
+.formBtns button:hover{
+    background-color: rgba(152, 172, 248,0.2);
+}

@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLAINT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/users/postComplaint.css">   <!--since only css/... was going into user/css/.. hence add a /-->
+</head>
+<body>
+    <div class="container">
+        <div class="topnav">
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
+            <div class="dropdown logoutOptions">
+                <div class="dropbtn profile"><%=status%></div>
+                <div class="dropdown-content">
+                    <div><a href="userLogin" class="login-btn">User</a></div>
+                    <div><a href="officerLogin">Officer</a></div>
+                </div>
+            </div>
+            <a href="logout" class="noDisplay logout">Logout</a>
+            <a href="news">News</a>
+            <a href="OfficersContact">Officer's Contact</a>
+            <a href="home">Home</a>
+        </div>
+        <div class="page-heading">POST GRIEVANCE</div>
+        <form method="POST" enctype="multipart/form-data" action="" class="grievanceForm">
+            <div class="element">
+                <div class="label">USER : </div>
+                <input type="email" disabled=disabled placeholder="<%=userData.username%>" id='userEmail' name='userEmail'>
+            </div>
+            <div class="element">
+                <div class="label" for="district">SELECT DISTRICT : </div>
+                <select name="district" id="district">
+                    <option value="Ahmednagar">Ahmednagar</option>
+                    <option value="Akola">Akola</option>
+                    <option value="Amravati">Amravati</option>
+                    <option value="Aurangabad">Aurangabad</option>
+                    <option value="Beed">Beed</option>
+                    <option value="Bhandara">Bhandara</option>
+                    <option value="Buldhana">Buldhana</option>
+                    <option value="Chandrapur">Chandrapur</option>
+                    <option value="Dhule">Dhule</option>
+                    <option value="Gadchiroli">Gadchiroli</option>
+                    <option value="Gondia">Gondia</option>
+                    <option value="Hingoli">Hingoli</option>
+                    <option value="Jalgaon">Jalgaon</option>
+                    <option value="Jalna">Jalna</option>
+                    <option value="Kolhapur">Kolhapur</option>
+                    <option value="Latur">Latur</option>
+                    <option value="MumbaiCity">Mumbai City</option>
+                    <option value="MumbaiSuburban">Mumbai Suburban</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Nanded">Nanded</option>
+                    <option value="Nandurbar">Nandurbar</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Osmanabad">Osmanabad</option>
+                    <option value="Palghar">Palghar</option>
+                    <option value="Parbhani">Parbhani</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Raigad">Raigad</option>
+                    <option value="Ratnagiri">Ratnagiri</option>
+                    <option value="Sangli">Sangli</option>
+                    <option value="Satara">Satara</option>
+                    <option value="Sindhudurg">Sindhudurg</option>
+                    <option value="Solapur">Solapur</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Wardha">Wardha</option>
+                    <option value="Washim">Washim</option>
+                    <option value="Yavatmal">Yavatmal</option> 
+                </select>
+            </div>
+            <div class="element">
+                <div class="label">GRIEVANCE DETAILS : </div>
+                <textarea id='grievanceDtl' name='grievanceDtl' rows="4" cols="50"></textarea>
+            </div>
+            <div class="element">
+                <div class="label">UPLOAD IMAGE : </div>
+                <input type="file" name="image" id="fileToUpload" class="fileUploadBtn">
+            </div>
+            <div class="element formBtns">
+                <button class="submitButton">SUBMIT</button>
+                <button class="cancelButton">CANCEL</button>
+            </div>
+        </form>
+    </div>
+    <script src="/js/userStatus.js"></script>
+</body>
+</html>
