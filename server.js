@@ -23,8 +23,6 @@ server.use(session({
 // server.use('/officer', officerRoute);
 server.use(express.static(publicDirectory));
 
-// const userSchema=require('./models/userSchema.js'); not using since no need of pojo 
-
 //DB CONNECTION
 const db= mysql.createConnection({
     host: process.env.HOST_NAME,
@@ -41,16 +39,8 @@ db.connect((err)=>{
 })
 
 server.get('/', (req, res)=>{
-    console.log('get call made');
-    res.render('home');
+    res.redirect('user/home');
 });
-server.get('/home', (req, res)=>{
-    console.log('home get call made');
-    res.render('home');
-});
-// server.get('/newsApi', (req, res)=>{
-//     console.log('news API get call made');
-//     res.render('newsApi');
-// });
+
 module.exports.db=db;
 server.listen('3000');

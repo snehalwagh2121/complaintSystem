@@ -69,3 +69,6 @@
       position: absolute;
   }
 
+.noDisplay{
+  display: none;
+}

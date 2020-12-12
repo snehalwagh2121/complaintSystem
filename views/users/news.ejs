@@ -12,18 +12,19 @@
     <!-- <a href="#" class="login-btn">Login</a> -->
     <div class="container">
         <div class="topnav">
-            <div class="nav-heading"><a href="/home">COMPLAINT PORTAL</a></div>
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
             
             <div class="dropdown logoutOptions">
-                <div class="dropbtn profile">Login</div>
+                <div class="dropbtn profile"><%=status%></div>
                 <div class="dropdown-content">
                     <div><a href="user/userLogin" class="login-btn">User</a></div>
                     <div><a href="user/officerLogin">Officer</a></div>
                 </div>
             </div>
+            <a href="logout" class="noDisplay logout">Logout</a>
             <a class="active" href="#news">News</a>
-            <a href="/user/OfficersContact">Officer's Contact</a>
-            <a href="/home">Home</a>
+            <a href="OfficersContact">Officer's Contact</a>
+            <a href="home">Home</a>
         </div>
        
         <div class="news">
@@ -35,6 +36,7 @@
     </div>
 
 <script src="https://kit.fontawesome.com/04ce6063ff.js" crossorigin="anonymous"></script>
+<script src="/js/userStatus.js"></script>
 <script src="/js/newsApi.js"></script>
 </body>
 </html>

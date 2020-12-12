@@ -10,18 +10,17 @@
 <body>
     <div class="container">
         <div class="topnav">
-            <div class="nav-heading"><a href="/home">COMPLAINT PORTAL</a></div>
+            <div class="nav-heading"><a href="home">COMPLAINT PORTAL</a></div>
             <div class="dropdown logoutOptions">
-                <div class="dropbtn profile">Login</div>
+                <div class="dropbtn profile"><%=status%></div>
                 <div class="dropdown-content">
                     <div><a href="userLogin" class="login-btn">User</a></div>
                     <div><a href="officerLogin">Officer</a></div>
                 </div>
             </div>
-            <a href="#">Contact</a>
-            <a href="/user/news">News</a>
-            <a class="active" href="/user/OfficersContact">Officer's Contact</a>
-            <a href="/home">Home</a>
+            <a href="logout" class="noDisplay logout">Logout</a>
+            <a href="news">News</a>
+            <a href="home">Home</a>
         </div>
         <div class="heading">OFFICERS CONTACTS</div>
         <div class="main-content">
@@ -44,5 +43,6 @@
         <% });
     }%>
     </div>
+    <script src="/js/userStatus.js"></script>
 </body>
 </html>
